@@ -1,0 +1,490 @@
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f0e9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Позволяет растянуть тело страницы на всю высоту окна */
+    text-align: center; /* Центрирование текста по умолчанию */
+}
+
+header {
+    background-color: red; /* Временно установим цвет фона для теста */
+    background-image: url('images/background.jpg'); /* Укажите путь к вашему изображению */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+    position: relative; /* Для позиционирования дочерних элементов */
+}
+
+header h1 {
+    position: relative; /* Чтобы текст был над фоном */
+    z-index: 2; /* Текст будет выше фона */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Тень для текста */
+    padding: 15px; /* Отступы вокруг текста */
+    margin: 0; /* Убираем отступы по умолчанию */
+    font-size: 36px; /* Увеличиваем размер шрифта заголовка */
+    text-align: center; /* Центрируем текст */
+}
+
+/* Полупрозрачный фон только под заголовком */
+header::after {
+    content: ""; /* Создаем псевдоэлемент */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 0; /* Прикрепляем к верхней части */
+    left: 0; /* Прикрепляем к левой части */
+    right: 0; /* Прикрепляем к правой части */
+    bottom: 0; /* Прикрепляем к нижней части */
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    z-index: 1; /* Убедимся, что фон под текстом */
+}
+
+.logo-container {
+    position: absolute; /* Позиционируем контейнер поверх всего */
+    top: -33px; /* Отступ сверху для контейнера */
+    left: 10px; /* Отступ слева для контейнера */
+    display: flex; /* Используем flexbox для расположения элементов в строку */
+    align-items: center; /* Центрируем по вертикали */
+    z-index: 10; /* Увеличиваем z-index, чтобы контейнер был поверх других элементов */
+}
+
+.logo {
+    height: 180px; /* Увеличиваем высоту логотипа в 3 раза */
+    margin-right: 10px; /* Отступ справа от логотипа */
+}
+
+.store-name {
+    font-size: 36px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    font-family: 'Poppins', sans-serif; /* Привлекательный шрифт */
+    color: #fff; /* Цвет текста белый */
+	left: -50px;
+}
+
+
+
+footer {
+    height: 60px;
+    background-color: transparent; /* Убираем временный фон */
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    padding: 0 20px; /* Убираем верхний отступ и добавляем боковые отступы */
+    margin-top: auto; /* Позволяет футеру "прикрепляться" к низу страницы */
+}
+
+
+/* Навигационный бар */
+.navbar {
+    background-color: #4a3523; /* Цвет фона навигационного бара */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень для навигационного бара */
+    padding: 10px 0; /* Отступы сверху и снизу */
+}
+
+/* Стили для списка */
+nav ul {
+    list-style-type: none; /* Убираем маркеры списка */
+    margin: 0; /* Убираем отступы */
+    padding: 0; /* Убираем внутренние отступы */
+    display: flex; /* Flex-контейнер для горизонтального расположения */
+    justify-content: center; /* Центрируем элементы навигации */
+}
+
+/* Стили для элементов списка */
+nav ul li {
+    margin: 0 15px; /* Отступы между элементами навигации */
+	    font-weight: bold; /* Жирный шрифт */
+    font-family: 'Poppins', sans-serif; /* Привлекательный шрифт */
+}
+
+/* Стили для ссылок */
+nav ul li a {
+    color: #ffcc00; /* Цвет текста ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-size: 18px; /* Размер шрифта */
+    padding: 10px 20px; /* Отступы вокруг текста для создания кнопок */
+    border-radius: 5px; /* Закругленные углы для кнопок */
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход для эффектов при наведении */
+}
+
+/* Эффекты при наведении */
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный белый фон при наведении */
+    color: #fff; /* Цвет текста при наведении */
+}
+
+/* Стили для активной ссылки */
+nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.3); /* Цвет фона для активной ссылки */
+    color: #ffcc00; /* Цвет текста для активной ссылки */
+}
+
+
+.slider {
+    max-width: 100%; /* Устанавливаем максимальную ширину слайдера на 100% */
+    width: 80%; /* Устанавливаем ширину слайдера на 80% для лучшего восприятия */
+    height: 400px; /* Высота слайдера */
+    position: relative;
+    margin: auto; /* Центрируем слайдер */
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 500%; /* Ширина контейнера слайдов остается 500% для 5 слайдов */
+}
+
+.slides img {
+    width: 20%; /* Изменяем ширину изображений на 20% (1/5 для 5 слайдов) */
+    height: 400px; /* Высота изображений */
+    object-fit: cover; /* Сохранение пропорций изображений */
+}
+
+.navigation {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.prev, .next {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+footer {
+    height: 60px; /* Высота футера */
+    background-color: #4a3523; /* Цвет фона футера */
+    color: white; /* Цвет текста футера */
+    padding: 0 20px; /* Убираем отступы сверху и снизу */
+    margin-top: auto; /* Позволяет футеру "прикрепляться" к низу страницы */
+    text-align: center; /* Центрируем текст футера */
+}
+
+footer p {
+    margin-top: 5px; /* Отступ сверху для текста © */
+    margin-bottom: 0; /* Убираем отступ снизу */
+}
+
+/* Стиль для копирайта */
+.footer-copyright {
+    text-align: center; /* Центрируем на больших экранах */
+    margin-top: 5px;
+	font-weight: bold; /* Жирный шрифт */
+    font-family: 'Poppins', sans-serif; /* Привлекательный шрифт */
+}
+
+/* Стиль для иконок социальных сетей */
+.social-icons {
+    display: flex;
+    justify-content: center; /* Центрируем на больших экранах */
+    gap: 10px; /* Отступы между иконками */
+    align-items: center;
+	margin-top: 2px;
+}
+
+.social-icons p {
+    margin: 0; /* Убираем отступы */
+    font-size: 16px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    margin-right: 10px; /* Отступ справа от текста к иконкам */
+
+}
+
+.icons-container {
+    display: flex; /* Для размещения иконок в ряд */
+
+}
+
+.social-icons a {
+    color: white; /* Цвет иконок */
+    text-decoration: none; /* Убираем подчеркивание */
+    margin: 0 10px; /* Отступы между иконками */
+    font-size: 24px; /* Размер иконок */
+    transition: color 0.3s, transform 0.3s; /* Плавный переход цвета и масштабирования при наведении */
+}
+
+/* Эффект при наведении на иконки */
+.social-icons a:hover {
+    color: #ffcc00; /* Цвет иконок при наведении */
+    transform: scale(1.1); /* Увеличение размера иконок при наведении */
+}
+
+
+/* Новый стиль для секции с товарами */
+.product-section {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет элементам переноситься на следующую строку */
+    justify-content: space-between; /* Распределение элементов по горизонтали */
+    padding: 20px; /* Отступы вокруг секции с товарами */
+}
+
+.product-item {
+    background-color: white; /* Фоновый цвет для каждого товара */
+    border: 1px solid #ccc; /* Граница вокруг товара */
+    border-radius: 5px; /* Закругленные углы */
+    margin: 10px; /* Отступ между товарами */
+    padding: 10px; /* Внутренние отступы */
+    width: calc(33.33% - 20px); /* Ширина каждого товара (3 товара в ряд с учетом отступов) */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для товара */
+    text-align: center; /* Центрируем текст в товаре */
+    box-sizing: border-box; /* Учитываем границы и отступы в ширине элемента */
+}
+
+.product-item img {
+    max-width: 100%; /* Картинки занимают всю ширину контейнера товара */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+}
+
+.product-item h3 {
+    margin: 10px 0; /* Отступы сверху и снизу заголовка */
+}
+
+.product-item p {
+    color: #666; /* Цвет текста описания */
+}
+
+/* Контейнер для отзывов */
+.reviews-container {
+    display: flex; /* Используем flexbox для расположения отзывов */
+    flex-wrap: wrap; /* Позволяет отзывам переноситься на следующую строку */
+    justify-content: center; /* Центрируем отзывы по горизонтали */
+    margin: 0 auto; /* Центрируем контейнер */
+    max-width: 1200px; /* Ограничиваем максимальную ширину контейнера */
+}
+
+/* Отзыв */
+.review {
+    background-color: #f9f9f9; /* Светлый фон для каждого отзыва */
+    border: 1px solid #ddd; /* Граница вокруг отзыва */
+    border-radius: 8px; /* Закругленные углы */
+    margin: 15px; /* Отступ между отзывами */
+    padding: 20px; /* Внутренние отступы */
+    width: calc(30% - 30px); /* Ширина отзыва (3 отзыва в ряд с учетом отступов) */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для отзыва */
+    box-sizing: border-box; /* Учитываем границы и отступы в ширине элемента */
+    transition: transform 0.3s; /* Плавный переход при наведении */
+}
+
+/* Эффект при наведении на отзыв */
+.review:hover {
+    transform: translateY(-5px); /* Поднимаем отзыв вверх при наведении */
+}
+
+/* Заголовок отзыва */
+.review h3 {
+    margin-top: 0; /* Убираем верхний отступ */
+    color: #333; /* Цвет заголовка */
+}
+
+/* Текст отзыва */
+.review p {
+    color: #666; /* Цвет текста отзыва */
+    line-height: 1.5; /* Высота строки для лучшей читаемости */
+}
+
+/* Скрытие ползунка прокрутки на страницах с ремнями и кошельками */
+body.rems-page {
+    overflow: hidden; /* Убираем прокрутку для body */
+    display: flex; /* Устанавливаем флекс-контейнер */
+    flex-direction: column; /* Устанавливаем вертикальное направление */
+    height: 100vh; /* Высота body равна высоте окна браузера */
+}
+
+/* Контейнер для продукта */
+.container {
+    flex: 1; /* Позволяет контейнеру занимать доступное пространство */
+    overflow-y: auto; /* Включаем вертикальную прокрутку внутри контейнера */
+    padding-right: 15px; /* Отступ для предотвращения "прыжков" */
+    box-sizing: content-box; /* Учитываем только содержимое в ширине */
+}
+
+.contact-section {
+    display: flex; /* Используем флекс для горизонтального расположения */
+    justify-content: space-between; /* Распределяем пространство между элементами */
+    align-items: flex-start; /* Выравнивание элементов по верхнему краю */
+    padding: 20px; /* Отступы вокруг секции */
+    width: 100%; /* Ширина контейнера */
+    max-width: 1200px; /* Ограничиваем максимальную ширину */
+    margin: 0 auto; /* Центрируем контейнер */
+}
+
+.contact-info,
+.contact-map {
+    flex: 1; /* Элемент занимает доступное пространство */
+    margin-right: 20px; /* Отступ справа */
+    background-color: white; /* Белый фон */
+    border-radius: 10px; /* Закругленные углы */
+    padding: 20px; /* Внутренние отступы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+.contact-map iframe {
+    width: 100%; /* Ширина карты на 100% */
+    height: 300px; /* Высота карты */
+    border: 0; /* Убираем границу */
+}
+
+
+
+
+
+
+
+/* Стили для навигационного меню */
+.nav-list {
+    display: flex; /* Меню в горизонтальном виде */
+}
+
+/* Скрываем меню на экранах 768 пикселей и меньше */
+@media (max-width: 768px) {
+    .nav-list {
+        display: none; /* Скрываем навигационное меню по умолчанию */
+        flex-direction: column; /* Изменяем направление на вертикальное */
+    }
+
+    .nav-list.active {
+        display: flex; /* Показываем меню, когда добавлен класс active */
+    }
+
+    .burger {
+        display: flex; /* Показываем бургер-меню */
+        flex-direction: column; /* Вертикальное расположение полосок */
+        cursor: pointer; /* Указываем, что элемент кликабельный */
+        width: 30px; /* Ширина бургер-кнопки */
+        height: 30px; /* Высота бургер-кнопки */
+        position: relative; /* Для правильного позиционирования */
+        margin: 5px; /* Отступ вокруг кнопки */
+    }
+
+    .burger .line {
+        height: 3px; /* Высота полосок */
+        width: 100%; /* Ширина полосок 100% от бургер-кнопки */
+        background-color: #000; /* Цвет полосок */
+        margin: 3px 0; /* Отступы между полосками */
+        transition: all 0.3s ease; /* Плавный переход */
+        position: relative; /* Для анимации */
+    }
+
+    .burger.active .line:nth-child(1) {
+        transform: rotate(45deg); /* Первую полоску поворачиваем */
+        margin-top: 0; /* Убираем отступ сверху */
+        position: absolute; /* Позволяем ей накладываться на среднюю полоску */
+        top: 50%; /* Центрируем по вертикали */
+    }
+
+    .burger.active .line:nth-child(2) {
+        opacity: 0; /* Скрываем среднюю полоску */
+        transition: opacity 0.3s ease; /* Плавный переход для скрытия */
+    }
+
+    .burger.active .line:nth-child(3) {
+        transform: rotate(-45deg); /* Третью полоску поворачиваем */
+        margin-bottom: 0; /* Убираем отступ снизу */
+        position: absolute; /* Позволяем ей накладываться на среднюю полоску */
+        top: 50%; /* Центрируем по вертикали */
+    }
+
+    .nav-item {
+        padding: 10px 15px; /* Отступы внутри элемента */
+        border: 1px solid transparent; /* Изначально без обводки */
+        transition: border 0.3s ease; /* Плавный переход для обводки */
+    }
+
+    nav ul {
+        padding: 0; /* Убираем отступы у списка */
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Устанавливаем меньший отступ между элементами */
+    }
+
+    nav ul li a {
+        padding: 10px 15px; /* Уменьшаем внутренние отступы у ссылок */
+        font-size: 16px; /* Можем также уменьшить размер шрифта для мобильных */
+    }
+    .social-icons	{
+        justify-content: flex-start; /* Выравниваем соцсети по левому краю */
+		gap: 0px; /* Отступы между иконками */
+    }
+	
+	
+.social-icons p {
+    margin: 0; /* Убираем отступы */
+    font-size: 12px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    margin-right: 5px; /* Отступ справа от текста к иконкам */
+}
+
+
+.social-icons a {
+    color: white; /* Цвет иконок */
+    text-decoration: none; /* Убираем подчеркивание */
+    margin: 0 5px; /* Отступы между иконками */
+    font-size: 24px; /* Размер иконок */
+    transition: color 0.3s, transform 0.3s; /* Плавный переход цвета и масштабирования при наведении */
+}	
+	
+	
+	
+
+
+    .footer-copyright {
+        text-align: left; /* Выравниваем копирайт по левому краю */
+		font-size: 10px;
+    }
+	
+	    .product-section {
+        justify-content: center; /* Центрируем товары по горизонтали */
+    }
+    
+    .product-item {
+        width: 100%; /* Ширина 100% для одного товара в строке */
+        margin: 10px 0; /* Уменьшаем отступы между товарами на мобильных */
+		
+    }
+
+    .contact-section {
+        flex-direction: column; /* Вертикальное расположение элементов */
+        padding: 10px; /* Уменьшаем отступы */
+		
+    }
+
+    .contact-info,
+    .contact-map {
+        margin-right: 0; /* Убираем отступ справа */
+        margin-bottom: 20px; /* Добавляем отступ снизу для разделения */
+    }
+
+    .contact-map iframe {
+        height: 200px; /* Уменьшаем высоту карты на мобильных устройствах */
+    }
+	    .reviews-container {
+        flex-direction: column; /* Переключаем на вертикальное расположение отзывов */
+        align-items: center; /* Центрируем отзывы по вертикали */
+    }
+
+    .review {
+        width: 90%; /* Ширина отзыва на мобильных устройствах */
+        margin: 10px 0; /* Убираем боковые отступы и добавляем вертикальный отступ */
+    }
+	.footer-main {
+		display: none; /* Скрываем футер по умолчанию на мобильных устройствах */
+    }
+    .shop-header {
+        display: none !important; /* Скрываем футер на мобильных устройствах */
+    }
+
+}
+
+
